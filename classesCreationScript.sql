@@ -1,0 +1,2 @@
+INSERT INTO class (name) VALUES ('Deutsch'), ('Englisch'), ('Französisch'), ('Spanisch'), ('Kunst'), ('Musik'), ('Geschichte'), ('Politik und Wirtschaft'), ('Erdkunde'), ('Mathe'), ('Physik'), ('Chemie'), ('Biologie')
+INSERT INTO favoriteDrink (name) VALUES ('Wodka'), ('Korn'), ('Whiskey'), ('Jägermeister'), ('Wein'), ('Sekt'), ('Bier')
