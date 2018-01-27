@@ -25,6 +25,8 @@ if ($mysqli->connect_errno) {
     exit;
 }
 
+$mysqli->set_charset("utf8");
+
 function ExecuteStatment($statement) {
     if(!$statement->execute())
     {
@@ -143,13 +145,15 @@ SQL;
     $entryId = $mysqli->insert_id;
 }
 
-$stmt = $mysqli->prepare('INSERT INTO favoriteDrink (surveyId, drink) VALUES (?, ?)');
-$favoriteDrink = '';
-$stmt->bind_param('is', $entryId, $favoriteDrink);
-foreach ($data->favoriteDrinks as $favoriteDrink) {
-    ExecuteStatment($stmt);
+if ($data->favoriteDrinks != null) {
+    $stmt = $mysqli->prepare('INSERT INTO favoriteDrink (surveyId, drink) VALUES (?, ?)');
+    $favoriteDrink = '';
+    $stmt->bind_param('is', $entryId, $favoriteDrink);
+    foreach ($data->favoriteDrinks as $favoriteDrink) {
+        ExecuteStatment($stmt);
+    }
+    $stmt->close();
 }
-$stmt->close();
 
 if ($data->isGamer === true) {
     if ($data->favoriteGames != null) {
