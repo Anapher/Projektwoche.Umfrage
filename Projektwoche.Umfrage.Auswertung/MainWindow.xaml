@@ -281,7 +281,7 @@
                                 controls:TextBoxHelper.ClearTextButton="True"
                                 HideUpDownButtons="True"
                                 Value="{Binding CurrentSurvey.FavoriteGamePlayingSince}" />
-                            <TextBlock Style="{StaticResource InfoText}" Text="Gesamtspielzeit (Monate):" />
+                            <TextBlock Style="{StaticResource InfoText}" Text="Gesamtspielzeit (Stunden):" />
                             <controls:NumericUpDown
                                 Width="120"
                                 controls:TextBoxHelper.ClearTextButton="True"

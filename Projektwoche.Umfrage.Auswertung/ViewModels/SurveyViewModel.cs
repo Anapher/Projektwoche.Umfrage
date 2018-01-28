@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using Anapher.Wpf.Swan;
 using Projektwoche.Umfrage.Auswertung.Core;
 
@@ -93,14 +94,19 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
         Q1,
         Q3
     }
-
+    
     public enum SchoolAchivement
     {
+        [EnumMember(Value = "15to13")]
         A15to13,
+        [EnumMember(Value = "12to10")]
         A12to10,
+        [EnumMember(Value = "9to7")]
         A9to7,
+        [EnumMember(Value = "6to5")]
         A6to5,
-        le5
+        [EnumMember(Value = "le5")]
+        le5 //less or equal 5
     }
 
     public enum SportyCharacter

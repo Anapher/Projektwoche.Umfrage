@@ -115,7 +115,7 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
                     var backupDirectory = new DirectoryInfo("backup");
                     if (!backupDirectory.Exists)
                         backupDirectory.Create();
-                    File.WriteAllText(Path.Combine(backupDirectory.FullName, MacAddress + "." + _currentId.ToString("N")), result);
+                    File.WriteAllText(Path.Combine(backupDirectory.FullName, MacAddress + ".-." + _currentId.ToString("N")), result);
 
                     try
                     {
@@ -137,7 +137,7 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
 
                         File.WriteAllText(
                             Path.Combine(backupDirectory.FullName,
-                                MacAddress + "." + _currentId.ToString("N") + "." + id), result);
+                                MacAddress + "." + id + "." + _currentId.ToString("N")), result);
                         _currentId = Guid.NewGuid();
 
                         IsCreated = true;

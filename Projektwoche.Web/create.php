@@ -46,7 +46,6 @@ $sex = $data->isMale === true ? 'm' : 'f';
 $birthyear = $data->birthyear;
 $lk1 = $data->lk1 == null ? null : $data->lk1->id;
 $lk2 = $data->lk2 == null ? null : $data->lk2->id;
-$schoolAchivement = trim($data->schoolAchivement, 'a');
 
 $entryId = 0;
 if ($data->isGamer === true) {
@@ -98,7 +97,7 @@ VALUES      (?,
              ?)
 SQL;
     $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param('siiisssiiiiiiiiiiiiii',$sex, $data->birthyear, $lk1, $lk2, $data->schoolGrade, $schoolAchivement, $data->sportyCharacter, $data->isInRelationship,
+    $stmt->bind_param('siiisssiiiiiiiiiiiiii',$sex, $data->birthyear, $lk1, $lk2, $data->schoolGrade, $data->schoolAchivement, $data->sportyCharacter, $data->isInRelationship,
         $data->isAlcoholic, $data->isSmoker, $data->timeForComputerGamesSchoolWeek, $data->timeForComputerGamesHolidayWeek, $data->favoriteGamePlayingSince, $data->favoriteGameTotalPlaytime,
         $data->reserveComputerGamesImportant, $data->reserveComputerGamesImpact, $data->reserveComputerGamesHelpStress, $data->reserveComputerGamesLifeBoring,
         $data->reserveComputerGamesHighlight, $data->reserveComputerGamesParents, $data->reserveComputerGamesSuccess);
@@ -138,7 +137,7 @@ VALUES      (?,
 SQL;
 
     $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param('siiisssiiiss',$sex, $data->birthyear, $lk1, $lk2, $data->schoolGrade, $schoolAchivement, $data->sportyCharacter, $data->isInRelationship,
+    $stmt->bind_param('siiisssiiiss',$sex, $data->birthyear, $lk1, $lk2, $data->schoolGrade, $data->schoolAchivement, $data->sportyCharacter, $data->isInRelationship,
         $data->isAlcoholic, $data->isSmoker, $data->reasonForNotPlaying, $data->viewOfGamers);
 
     ExecuteStatment($stmt);
