@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -13,6 +14,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Projektwoche.Umfrage.Auswertung.Core;
+using Projektwoche.Umfrage.Auswertung.Utilities;
 
 namespace Projektwoche.Umfrage.Auswertung.ViewModels
 {
@@ -20,6 +22,8 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
     {
         private static readonly Uri BaseUri = new Uri(ConfigurationManager.AppSettings["url"]);
         private readonly HttpClient _httpClient = new HttpClient {BaseAddress = BaseUri};
+        private Guid _currentId = Guid.NewGuid();
+        public static readonly string MacAddress = ComputerInfo.GetMacAddress();
 
         private readonly JsonSerializerSettings _jsonSettings =
             new JsonSerializerSettings
@@ -108,9 +112,14 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
                     CreatedEntryId = null;
 
                     var result = JsonConvert.SerializeObject(CurrentSurvey, Formatting.Indented, _jsonSettings);
+                    var backupDirectory = new DirectoryInfo("backup");
+                    if (!backupDirectory.Exists)
+                        backupDirectory.Create();
+                    File.WriteAllText(Path.Combine(backupDirectory.FullName, MacAddress + "." + _currentId.ToString("N")), result);
+
                     try
                     {
-                        var response = await _httpClient.PostAsync("create.php",
+                        var response = await _httpClient.PostAsync("create.php?macAddress=" + MacAddress,
                             new StringContent(result, Encoding.UTF8, "application/json"));
                         if (response.StatusCode != HttpStatusCode.Created)
                         {
@@ -126,8 +135,14 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
                         CreatedEntryId = id;
                         CurrentSurvey = new SurveyViewModel();
 
+                        File.WriteAllText(
+                            Path.Combine(backupDirectory.FullName,
+                                MacAddress + "." + _currentId.ToString("N") + "." + id), result);
+                        _currentId = Guid.NewGuid();
+
                         IsCreated = true;
-                        Task.Delay(1000).ContinueWith(task => IsCreated = false);
+                        await Task.Delay(1000);
+                        IsCreated = false;
                     }
                     catch (Exception e)
                     {

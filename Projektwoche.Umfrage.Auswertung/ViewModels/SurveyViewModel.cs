@@ -61,7 +61,7 @@ namespace Projektwoche.Umfrage.Auswertung.ViewModels
         Survival,
         Strategie,
         Sports,
-        Rennspiel,
+        Rennspiele,
         Rollenspiele,
         MOBA,
         MMORPG

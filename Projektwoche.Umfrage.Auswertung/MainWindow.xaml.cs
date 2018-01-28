@@ -16,6 +16,7 @@ namespace Projektwoche.Umfrage.Auswertung
             InitializeComponent();
             DataContext = new MainViewModel();
             Loaded += OnLoaded;
+            Title = $"JGS Umfrage Auswertung [ID: {MainViewModel.MacAddress}]";
         }
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)

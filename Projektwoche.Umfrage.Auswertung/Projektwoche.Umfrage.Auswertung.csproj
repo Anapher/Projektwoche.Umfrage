@@ -85,6 +85,7 @@
     </ApplicationDefinition>
     <Compile Include="Core\ComputerGame.cs" />
     <Compile Include="Core\SchoolClass.cs" />
+    <Compile Include="Utilities\ComputerInfo.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

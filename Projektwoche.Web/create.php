@@ -39,6 +39,7 @@ function ExecuteStatment($statement) {
     }
 }
 
+$macAddress = $_GET["macAddress"];
 $data = json_decode(file_get_contents('php://input'), false);
 
 $sex = $data->isMale === true ? 'm' : 'f';
@@ -144,6 +145,11 @@ SQL;
     $stmt->close();
     $entryId = $mysqli->insert_id;
 }
+
+$stmt = $mysqli->prepare('INSERT INTO userReference (surveyId, macAddress) VALUES (?, ?)');
+$stmt->bind_param('is', $entryId, $macAddress);
+ExecuteStatment($stmt);
+$stmt->close();
 
 if ($data->favoriteDrinks != null) {
     $stmt = $mysqli->prepare('INSERT INTO favoriteDrink (surveyId, drink) VALUES (?, ?)');

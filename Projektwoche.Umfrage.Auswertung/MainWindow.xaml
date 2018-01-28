@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:Projektwoche.Umfrage.Auswertung.ViewModels"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-    Title="JGS Umfrage"
-    Width="772"
+    Title="JGS Umfrage Auswertung"
+    Width="814"
     d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
     SizeToContent="Height"
     WindowStartupLocation="CenterScreen"
@@ -446,17 +446,7 @@
                     Width="140"
                     Margin="10,0,0,0"
                     Command="{Binding CreateCommand}"
-                    Content="Erstellen">
-                    <Button.Style>
-                        <Style BasedOn="{StaticResource MetroButton}" TargetType="Button">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsCreated}" Value="true">
-                                    <Setter Property="IsEnabled" Value="False" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                    Content="Erstellen" />
             </StackPanel>
         </Grid>
     </Grid>
