@@ -7,224 +7,262 @@
     Title="MainWindow"
     SizeToContent="WidthAndHeight"
     mc:Ignorable="d">
-    <Grid
-        x:Name="MainGrid"
-        Width="600"
-        Height="850"
-        Background="White"
-        SnapsToDevicePixels="True"
-        TextOptions.TextFormattingMode="Display">
-        <Grid.Resources>
-            <Style x:Key="InfoText" TargetType="TextBlock">
-                <Setter Property="Margin" Value="0,0,10,0" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="FontSize" Value="11" />
-            </Style>
-            <Style TargetType="TextBlock">
-                <Setter Property="FontSize" Value="11" />
-            </Style>
-            <Style TargetType="CheckBox">
-                <Setter Property="BorderBrush" Value="{StaticResource GrayBrush4}" />
-            </Style>
-            <Thickness x:Key="CheckBoxSpace" Right="10" />
-            <Thickness x:Key="LineSpace" Top="13" />
-            <Style x:Key="FieldBorder" TargetType="Border">
-                <Setter Property="BorderThickness" Value="0,0,0,1" />
-                <Setter Property="BorderBrush" Value="Black" />
-            </Style>
-        </Grid.Resources>
-        <StackPanel Margin="15,15" Orientation="Vertical">
-            <TextBlock
-                HorizontalAlignment="Center"
-                FontSize="14"
-                FontWeight="Bold"
-                Text="Umfrage - Auswirkungen von Computerspielen auf Mensch und Gesellschaft" />
-            <Grid Margin="0,15,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" SharedSizeGroup="Space" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource InfoText}" Text="Geschlecht:" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="männlich" />
-                    <CheckBox VerticalAlignment="Center" Content="weiblich" />
-                </StackPanel>
-                <StackPanel Grid.Column="2" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource InfoText}" Text="Geburtsjahr:" />
-                    <Border Width="75" Style="{StaticResource FieldBorder}" />
-                </StackPanel>
-            </Grid>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="LK:" />
-                    <Border Width="60" Style="{StaticResource FieldBorder}" />
-                    <TextBlock Margin="10,0,0,0" Text="OK:" />
-                    <Border Width="60" Style="{StaticResource FieldBorder}" />
-                </StackPanel>
-                <StackPanel Margin="20,0,0,0" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource InfoText}" Text="Lieblingsfach:" />
-                    <Border Width="60" Style="{StaticResource FieldBorder}" />
-                </StackPanel>
+    <ScrollViewer x:Name="ScrollViewer" VerticalScrollBarVisibility="Visible">
+        <Grid
+            x:Name="MainGrid"
+            Width="600"
+            Height="850"
+            Background="White"
+            SnapsToDevicePixels="True"
+            TextOptions.TextFormattingMode="Display">
+            <Grid.Resources>
+                <Style x:Key="InfoText" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,0,10,0" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="FontSize" Value="11" />
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="11" />
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="BorderBrush" Value="{StaticResource GrayBrush4}" />
+                </Style>
+                <Thickness x:Key="CheckBoxSpace" Right="10" />
+                <Thickness x:Key="LineSpace" Top="13" />
+                <Style x:Key="FieldBorder" TargetType="Border">
+                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                    <Setter Property="BorderBrush" Value="Black" />
+                </Style>
+            </Grid.Resources>
+            <StackPanel Margin="15,15" Orientation="Vertical">
                 <TextBlock
-                    Margin="20,0,0,0"
-                    FontStyle="Italic"
-                    Text="(Abkürzungen für die Kurse genügen)" />
-            </StackPanel>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Jahrgangsstufe:" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="E1" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Q1" />
-                <CheckBox Content="Q3" />
-            </StackPanel>
-            <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Schulische Leistung (Ø):" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="15-14" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="13-12" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="11-10" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="9-8" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="7-6" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="≤5" />
-            </StackPanel>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Sportliche Leistung:" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="sehr sportlich" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="durchschnittlich" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="mache keinen bis kaum Sport" />
-            </StackPanel>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Social Media Posting (Instagram &amp; Facebook):" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="sehr aktiv" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="mittelmäßig" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="ich poste kaum/nichts" />
-            </StackPanel>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Beziehungsstatus:" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="vergeben" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="single" />
-            </StackPanel>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Religion:" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Atheist" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Christ" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Moslem" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Sonstiges" />
-            </StackPanel>
-            <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Ich trinke regelmäßig Alkohol (ungefähr einmal pro Woche):" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Ja" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nein" />
-            </StackPanel>
-            <StackPanel Margin="0,2,0,0" Orientation="Horizontal">
-                <TextBlock Style="{StaticResource InfoText}" Text="Ich trinke am liebsten:" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Wodka" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Korn" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Whiskey" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Jägermeister" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Wein" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Sekt" />
-                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Bier" />
-            </StackPanel>
-            <TextBlock
-                Margin="0,20,0,0"
-                FontSize="12"
-                FontWeight="Bold"
-                Text="Spielst du digitale Spiele oder hast du schonmal aktiv digitale Spiele gespielt?" />
-            <Border Margin="0,5,0,0" Background="#FFEEEEEE">
-                <StackPanel Margin="5,10" Orientation="Vertical">
-                    <RadioButton>
-                        <TextBlock>
-                            <Run Text="Ja" />
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="Umfrage - Auswirkungen von Computerspielen auf Mensch und Gesellschaft" />
+                <Grid Margin="0,15,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" SharedSizeGroup="Space" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource InfoText}" Text="Geschlecht:" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="männlich" />
+                        <CheckBox VerticalAlignment="Center" Content="weiblich" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource InfoText}" Text="Geburtsjahr:" />
+                        <Border Width="75" Style="{StaticResource FieldBorder}" />
+                    </StackPanel>
+                </Grid>
+                <DockPanel Margin="{StaticResource LineSpace}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="1. LK/OK:" />
+                        <Border Width="60" Style="{StaticResource FieldBorder}" />
+                        <TextBlock Margin="10,0,0,0" Text="2. LK/OK:" />
+                        <Border Width="60" Style="{StaticResource FieldBorder}" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource InfoText}" Text="Jahrgangsstufe:" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="E1" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Q1" />
+                        <CheckBox Content="Q3" />
+                    </StackPanel>
+                </DockPanel>
+                <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Schulische Leistung (Ø):" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="15-13" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="12-10" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="9-7" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="6-5" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="≤5" />
+                </StackPanel>
+                <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Sportliche Leistung:" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="sehr sportlich" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="sportlich" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="durchschnittlich" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="kaum Sport" />
+                </StackPanel>
+                <StackPanel
+                    Margin="{StaticResource LineSpace}"
+                    Background="Red"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Social Media Posting (Instagram &amp; Facebook):" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="sehr aktiv" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="mittelmäßig" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="ich poste kaum/nichts" />
+                </StackPanel>
+                <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Beziehungsstatus:" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="vergeben" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="single" />
+                </StackPanel>
+                <StackPanel
+                    Margin="{StaticResource LineSpace}"
+                    Background="Red"
+                    Orientation="Horizontal"
+                    Visibility="Collapsed">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Religion:" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Atheist" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Christ" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Moslem" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Sonstiges" />
+                </StackPanel>
+                <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Ich trinke regelmäßig Alkohol (ungefähr einmal pro Woche):" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Ja" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nein" />
+                </StackPanel>
+                <StackPanel Margin="0,2,0,0" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Ich trinke am liebsten:" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Wodka" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Korn" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Whiskey" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Jägermeister" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Wein" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Sekt" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Bier" />
+                </StackPanel>
+                <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource InfoText}" Text="Ich rauche:" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Ja" />
+                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nein" />
+                </StackPanel>
+                <Rectangle
+                    Height="1"
+                    Margin="2,10"
+                    Fill="Gray"
+                    SnapsToDevicePixels="True" />
+                <TextBlock
+                    FontSize="12"
+                    FontWeight="Bold"
+                    Text="Spielst du digitale Spiele oder hast du schonmal aktiv digitale Spiele gespielt?" />
+                <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                    <RadioButton Margin="{StaticResource CheckBoxSpace}" Content="Ja (bitte im grauen Kasten weitermachen)" />
+                </StackPanel>
+                <RadioButton Margin="0,8,0,0" Content="Nein" />
+                <StackPanel Margin="5,0,0,0" Orientation="Vertical">
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource InfoText}" Text="Wieso nicht?" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="kein Interesse" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="keine Zeit" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="noch nie probiert" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="weiß nicht" />
+                    </StackPanel>
+                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource InfoText}" Text="Wie siehst du Menschen, die jeden Tag mindestens eine Stunde zocken:" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nerds" />
+                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Normal" />
+                    </StackPanel>
+                </StackPanel>
+                <Border Margin="0,5,0,0" Background="#FFF1F1F1">
+                    <StackPanel Margin="5,10" Orientation="Vertical">
+                        <TextBlock FontWeight="Bold">
+                            <Run Text="Falls ja" />
                             <Run FontStyle="Italic" Text="(ab jetzt wird &quot;Computerspiele&quot; für jede Art digitaler Spiele verwendet)" />
                         </TextBlock>
-                    </RadioButton>
-                    <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource InfoText}" Text="Primäre Plattform:" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Computer" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Playstation" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Xbox" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nintendo" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Smartphone" />
+                        <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource InfoText}" Text="Primäre Plattform:" />
+                            <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Computer" />
+                            <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Playstation" />
+                            <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Xbox" />
+                            <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nintendo" />
+                            <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Smartphone" />
+                        </StackPanel>
+                        <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource InfoText}" Text="Zeit für Computerspiele:" />
+                            <TextBlock Text="in einer Schulwoche: " />
+                            <Border Width="50" Style="{StaticResource FieldBorder}" />
+                            <TextBlock Margin="10,0,0,0" Text="in einer Ferienwoche: " />
+                            <Border Width="50" Style="{StaticResource FieldBorder}" />
+                        </StackPanel>
+                        <Grid Margin="{StaticResource LineSpace}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource InfoText}" Text="Lieblingsgenre:" />
+                            <WrapPanel Grid.Column="2" Orientation="Horizontal">
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Shooter" />
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Survival" />
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Strategie" />
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Sports" />
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Rennspiele" />
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Rollenspiele" />
+                                <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="MOBA" />
+                                <CheckBox Margin="6,0,0,0" Content="MMORPG" />
+                            </WrapPanel>
+                        </Grid>
+                        <DockPanel Margin="{StaticResource LineSpace}">
+                            <TextBlock Style="{StaticResource InfoText}" Text="Lieblingsspiel:" />
+                            <Border Style="{StaticResource FieldBorder}" />
+                        </DockPanel>
+                        <WrapPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
+                            <TextBlock Text="Ich spiele mein Lieblingsspiel seit ca." />
+                            <Border
+                                Width="50"
+                                Margin="5,0"
+                                Style="{StaticResource FieldBorder}" />
+                            <TextBlock Text="(Jahre/Monate) und habe insgesamt" />
+                            <Border
+                                Width="50"
+                                Margin="5,0"
+                                Style="{StaticResource FieldBorder}" />
+                            <TextBlock Text="Stunden gespielt." />
+                        </WrapPanel>
+                        <DataGrid
+                            x:Name="YesDataGrid"
+                            Margin="0,10,0,0"
+                            AutoGenerateColumns="False"
+                            BorderBrush="{StaticResource GrayBrush3}"
+                            BorderThickness="1"
+                            GridLinesVisibility="All"
+                            HorizontalScrollBarVisibility="Disabled">
+                            <DataGrid.Resources>
+                                <Style BasedOn="{StaticResource MetroDataGridColumnHeader}" TargetType="DataGridColumnHeader">
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                                    Width="200"
+                                    Binding="{Binding}"
+                                    Header="Vorbehalt">
+                                    <DataGridTextColumn.ElementStyle>
+                                        <Style>
+                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                            <Setter Property="TextBlock.FontSize" Value="11" />
+                                        </Style>
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="65">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock>
+                                            <Run Text="1&#x0a;" /><Run FontSize="10" Text="(trifft zu)" />
+                                        </TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="52" Header="2" />
+                                <DataGridTextColumn Width="52" Header="3" />
+                                <DataGridTextColumn Width="52" Header="4" />
+                                <DataGridTextColumn Width="52" Header="5" />
+                                <DataGridTextColumn Width="90">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock>
+                                            <Run Text="6&#x0a;" /><Run FontSize="10" Text="(trifft nicht zu)" />
+                                        </TextBlock>
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </StackPanel>
-                    <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource InfoText}" Text="Zeit für Computerspiele:" />
-                        <TextBlock Text="in einer Schulwoche: " />
-                        <Border Width="50" Style="{StaticResource FieldBorder}" />
-                        <TextBlock Margin="10,0,0,0" Text="in einer Ferienwoche: " />
-                        <Border Width="50" Style="{StaticResource FieldBorder}" />
-                    </StackPanel>
-                    <StackPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource InfoText}" Text="Lieblingsgenre:" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="FPS" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="MMORPG" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="RPG" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Sports" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Survival" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="MOBA" />
-                        <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="RTS" />
-                    </StackPanel>
-                    <DockPanel Margin="{StaticResource LineSpace}">
-                        <TextBlock Style="{StaticResource InfoText}" Text="Lieblingsspiel:" />
-                        <Border Style="{StaticResource FieldBorder}" />
-                    </DockPanel>
-                    <WrapPanel Margin="{StaticResource LineSpace}" Orientation="Horizontal">
-                        <TextBlock Text="Ich spiele mein Lieblingsspiel seit ca." />
-                        <Border
-                            Width="100"
-                            Margin="5,0"
-                            Style="{StaticResource FieldBorder}" />
-                        <TextBlock Text="(Jahr/Monat) und habe insgesamt" />
-                        <Border
-                            Width="70"
-                            Margin="5,0"
-                            Style="{StaticResource FieldBorder}" />
-                        <TextBlock Text="Stunden gespielt." />
-                    </WrapPanel>
-                    <DataGrid
-                        x:Name="YesDataGrid"
-                        Margin="0,10,0,0"
-                        AutoGenerateColumns="False"
-                        BorderBrush="{StaticResource GrayBrush3}"
-                        BorderThickness="1"
-                        GridLinesVisibility="All"
-                        HorizontalScrollBarVisibility="Disabled">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn
-                                Width="200"
-                                Binding="{Binding}"
-                                Header="Vorbehalt">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style>
-                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                        <Setter Property="TextBlock.FontSize" Value="11" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Width="100" Header="1 (trifft zu)" />
-                            <DataGridTextColumn Width="52" Header="2" />
-                            <DataGridTextColumn Width="52" Header="3" />
-                            <DataGridTextColumn Width="52" Header="4" />
-                            <DataGridTextColumn Width="52" Header="5" />
-                            <DataGridTextColumn Width="52" Header="6" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </StackPanel>
-            </Border>
-            <RadioButton Margin="5,8,0,0" Content="Nein" />
-            <StackPanel Margin="5,0,0,0" Orientation="Vertical">
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource InfoText}" Text="Wieso nicht?" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="kein Interesse" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="keine Zeit" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="noch nie probiert" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="weiß nicht" />
-                </StackPanel>
-                <StackPanel Margin="0,8,0,0" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource InfoText}" Text="Wie siehst du Menschen, die jeden Tag mindestens eine Stunde zocken:" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Nerds" />
-                    <CheckBox Margin="{StaticResource CheckBoxSpace}" Content="Normal" />
-                </StackPanel>
+                </Border>
             </StackPanel>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </ScrollViewer>
+
 </Window>
